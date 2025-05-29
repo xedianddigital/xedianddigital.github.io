@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aura Eye Shield</title>
+<style>
+  body {
+    margin: 0; /* Remove default body margins */
+    height: 100vh; /* Make the body take up the full viewport height */
+    background-color: #f0f0f0; /* Choose a background color that complements your image */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    /* Optional: If you want to prevent scrolling if the image is larger than the viewport */
+    overflow: hidden;
+  }
+
+  .image-container {
+    /* No need for width/height 100% here, as the image itself dictates the size */
+    background-image: url('feature_image.png'); /* Replace with your image file name */
+    background-size: auto; /* Display image at its natural resolution (no stretching/scaling) */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-position: center; /* Center the image within its container */
+    
+    /* Since background-size: auto doesn't give the container a size based on the image,
+       we give the container its own dimensions if you want a fixed area,
+       or better, we use an <img> tag for precise control over aspect ratio. */
+    
+    /* For a background image, you'd typically want its container to be sized.
+       If your image is 1024x500 and you want the *background container* to be exactly that size,
+       you'd add: */
+    width: 1024px;
+    height: 500px;
+    /* If you omit width/height, the background image won't have an area to display on unless
+       there's other content or fixed dimensions. */
+  }
+</style>
+</head>
+<body>
+  <div class="image-container"></div>
+</body>
+</html>
