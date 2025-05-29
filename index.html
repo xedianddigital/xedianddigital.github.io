@@ -4,38 +4,28 @@
 <title>Aura Eye Shield</title>
 <style>
   body {
-    margin: 0; /* Remove default body margins */
+    margin: 0;
     height: 100vh; /* Make the body take up the full viewport height */
-    background-color: #f0f0f0; /* Choose a background color that complements your image */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    /* Optional: If you want to prevent scrolling if the image is larger than the viewport */
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrollbars if content is slightly larger than screen */
+
+    /* Gradient Background Styles - This will be *behind* your image */
+    background: linear-gradient(to bottom right, #7a829e, #2F3647);
   }
 
-  .image-container {
-    /* No need for width/height 100% here, as the image itself dictates the size */
-    background-image: url('feature_image.png'); /* Replace with your image file name */
-    background-size: auto; /* Display image at its natural resolution (no stretching/scaling) */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-position: center; /* Center the image within its container */
-    
-    /* Since background-size: auto doesn't give the container a size based on the image,
-       we give the container its own dimensions if you want a fixed area,
-       or better, we use an <img> tag for precise control over aspect ratio. */
-    
-    /* For a background image, you'd typically want its container to be sized.
-       If your image is 1024x500 and you want the *background container* to be exactly that size,
-       you'd add: */
-    width: 1024px;
-    height: 500px;
-    /* If you omit width/height, the background image won't have an area to display on unless
-       there's other content or fixed dimensions. */
+  img {
+    /* This image will naturally sit *on top* of the body's background */
+    display: block; /* Removes extra space below image */
+    max-width: 100%; /* Ensures the image doesn't overflow small screens horizontally */
+    max-height: 100vh; /* Ensures the image doesn't overflow tall screens vertically */
+    width: auto; /* Maintains original aspect ratio */
+    height: auto; /* Maintains original aspect ratio */
+    object-fit: contain; /* Scales image down to fit, maintaining aspect ratio, without cropping */
   }
 </style>
 </head>
 <body>
-  <div class="image-container"></div>
-</body>
+  <img src="feature_image.png" alt="Aura Eye Shield App Feature Image"> </body>
 </html>
